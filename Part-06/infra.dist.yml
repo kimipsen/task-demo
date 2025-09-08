@@ -1,0 +1,11 @@
+# Infrastructure tasks
+version: '3'
+tasks:
+  setup:
+    desc: "Set up infrastructure"
+    cmds:
+      - echo "Setting up infrastructure..."
+  teardown:
+    desc: "Tear down infrastructure"
+    cmds:
+      - echo "Tearing down infrastructure..."

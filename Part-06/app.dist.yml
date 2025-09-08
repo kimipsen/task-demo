@@ -1,0 +1,11 @@
+# Application tasks
+version: '3'
+tasks:
+  build:
+    desc: "Build the application"
+    cmds:
+      - echo "Building the application..."
+  test:
+    desc: "Test the application"
+    cmds:
+      - echo "Running application tests..."

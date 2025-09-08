@@ -1,0 +1,27 @@
+# Dry-run demo Taskfile
+version: '3'
+tasks:
+  deploy:
+    desc: "Deploys the application (use --dry to preview)"
+    cmds:
+      - echo "Deploying to production server..."
+      - echo "Running migrations..."
+      - echo "Restarting services..."
+      - touch .tempfile-deploy
+      - echo 'You lost the game' >> .tempfile-deploy
+  backup:
+    desc: "Backs up the database (use --dry to preview)"
+    cmds:
+      - echo "Backing up database to /tmp/db-backup.sql"
+      - echo "Compressing backup file..."
+      - echo "Uploading backup to remote storage..."
+      - touch .tempfile-backup
+      - echo 'You lost the game' >> .tempfile-backup
+  check-tempfile:
+    desc: "Checks for any .tempfile-* and proclaims if you lost the game"
+    status:
+      - test ! -e .tempfile-*
+    cmds:
+      - echo "You lost the game! A .tempfile-* exists."
+      - rm .tempfile-*
+    silent: true

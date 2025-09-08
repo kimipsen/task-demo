@@ -1,0 +1,14 @@
+# Main Taskfile for Part-06
+version: '3'
+includes:
+  infra:
+    taskfile: ./infra.dist.yml
+    desc: "Infrastructure related tasks"
+  app:
+    taskfile: ./app.dist.yml
+    desc: "Application related tasks"
+tasks:
+  greet:
+    desc: "Greet from main taskfile"
+    cmds:
+      - echo "Hello from the main Taskfile!"
