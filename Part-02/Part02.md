@@ -9,7 +9,7 @@ This directory demonstrates Taskfile priority rules using two Taskfiles:
 
 1. Before doing anything, run `task --list-all` to see all available tasks. Only 1 should show in the directory, the `hello`-target.
 
-2. Create your own `taskfile.yml` in this directory with the following content:
+2. Create your own `taskfile.yml` (`task --init`) in this directory with the following content:
 
 ```yaml
 version: '3'
