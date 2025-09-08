@@ -1,0 +1,51 @@
+# Demo: Prompts for environment/server actions
+version: '3'
+tasks:
+  run-command:
+    desc: |
+      Run a command on a single server in a given environment.
+      Usage: task run-command ENV=<environment> SERVER=<server>
+      Environments: LX1, LX2, LX3, LT, ET, FT
+      Servers: ans01, ans02, sup01, sup02, med01, med02, ws01, ws02
+    prompt:
+      - "Are you sure you want to run this command on {{.ENV}}:{{.SERVER}}?"
+    cmds:
+      - echo "Running command on {{.ENV}}:{{.SERVER}}"
+      - echo "(Simulated) ssh {{.SERVER}}@{{.ENV}} 'your-command-here'"
+    vars:
+      ENV: '{{.ENV | default "LX1"}}'
+      SERVER: '{{.SERVER | default "sup01"}}'
+    silent: true
+  quick-sup01:
+    desc: |
+      Run a quick command on sup01 in LX1 (default values).
+      Usage: task quick-sup01
+    prompt:
+      - "Run quick command on sup01 in LX1?"
+    cmds:
+      - echo "(Simulated) ssh sup01@LX1 'your-quick-command'"
+    silent: true
+  run-multi:
+    desc: |
+      Run a command on all servers in a given environment.
+      Usage: task run-multi ENV=<environment>
+      Environments: LX1, LX2, LX3, LT, ET, FT
+      Servers: ans01, ans02, sup01, sup02, med01, med02, ws01, ws02
+    prompt:
+      - "Are you sure you want to run this command on all servers in {{.ENV}}?"
+    vars:
+      ENV: '{{.ENV | default "LX1"}}'
+      SERVERS:
+        - ans01
+        - ans02
+        - sup01
+        - sup02
+        - med01
+        - med02
+        - ws01
+        - ws02
+    cmds:
+      - for:
+          var: SERVERS
+        cmd: echo "(Simulated) ssh {{.ITEM}}@{{.ENV}} 'your-command-here'"
+    silent: true

@@ -1,0 +1,18 @@
+# OS-specific tasks demo
+version: '3'
+tasks:
+  os-info:
+    platforms: [linux]
+    cmds:
+      - echo "You are running on Linux!"
+    silent: true
+  os-info-mac:
+    platforms: [darwin]
+    cmds:
+      - echo "You are running on macOS!"
+    silent: true
+  os-info-win:
+    platforms: [windows]
+    cmds:
+      - echo "You are running on Windows!"
+    silent: true

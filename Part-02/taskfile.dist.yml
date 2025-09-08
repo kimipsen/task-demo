@@ -1,0 +1,7 @@
+# Shared tasks for Part-02
+version: '3'
+tasks:
+  hello:
+    cmds:
+      - echo "Hello from the shared dist Taskfile!"
+    silent: true

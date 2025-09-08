@@ -1,0 +1,10 @@
+# Copilot Instructions
+
+- Use $BROWSER <url> to open a webpage in the host's default browser.
+- This workspace is in a dev container running on Alpine Linux v3.21.
+- Some available command line tools: apk, git, curl, wget, ssh, scp, rsync, gpg, ps, lsof, netstat, top, tree, find, grep, zip, unzip, tar, gzip, bzip2, xz.
+- The default shell is bash.
+- Follow best practices for code and configuration in this environment.
+- This container is created to demonstrate Taskfile usage.
+- When writing how to eecute task commands, do not use abbreviations.
+- When writing step-by-step instructions on how to run task commands and you normally would include the `task --list-all` command at the end, add it as the first command instead.

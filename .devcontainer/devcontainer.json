@@ -1,0 +1,15 @@
+{
+    "name": "Taskfile demo",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "image": "mcr.microsoft.com/devcontainers/base:debian",
+    "features": {
+        "ghcr.io/eitsupi/devcontainer-features/go-task:1": {},
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+            "moby": "false"
+        }
+    },
+    "customizations": {
+        "vscode": {},
+        "codespaces": {}
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "ignore": [
+    "LICENSE",
+    ".devcontainer/",
+    "*.log",
+    "node_modules/",
+    "dist/",
+    "build/"
+  ]
+}
