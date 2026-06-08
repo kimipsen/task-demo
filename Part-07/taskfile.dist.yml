@@ -1,0 +1,39 @@
+version: '3'
+
+silent: true
+
+vars:
+  CONFIG:
+    sh: cat config.json
+  ENVIRONMENTS: [ "dev", "staging", "prod" ]
+
+tasks:
+  deploy1:
+    desc: "Deploy the application to a specified environment. Shows validation on manually provided variables, loaded from JSON configuration."
+    requires:
+      vars:
+        - name: ENV
+          enum:
+            ref: ( .CONFIG | fromJson ).allowed_environments
+    cmds:
+      - echo "Deploying to environment {{.ENV}}"
+
+  deploy2:
+    desc: "Deploy the application to a specified environment. Shows validation on manually provided variables with an additional variable. Validation is done using list provided in the Taskfile."
+    requires:
+      vars:
+        - name: ENV
+          enum:
+            ref: .ENVIRONMENTS
+    cmds:
+      - echo "Deploying to environment {{.ENV}}"
+
+  deploy3:
+    desc: "Deploy the application to a specified environment with a version. Shows validation on manually provided variables. Validation is done using list provided by target variable. Has autocompletion for target environment."
+    requires:
+      vars:
+        - name: ENVIRONMENT
+          enum: [dev, staging, prod]
+        - VERSION
+    cmds:
+      - echo "Deploying {{.VERSION}} to {{.ENVIRONMENT}}"

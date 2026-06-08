@@ -1,0 +1,4 @@
+{
+    "allowed_environments": [ "dev", "prod" ],
+    "jobs": [ "build", "test", "deploy" ]
+}
